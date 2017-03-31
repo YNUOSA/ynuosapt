@@ -1,0 +1,7 @@
+discuz:
+  build: .
+  ports:
+    - "80:80/tcp"
+    - "443:443/tcp"
+  volumes:
+    - ./html:/var/www/html

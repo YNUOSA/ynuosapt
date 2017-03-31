@@ -1,0 +1,9 @@
+mysql:
+  image: mysql
+#  build:
+#  environment:
+#    - MYSQL_ROOT_PASSWORD=1234567
+#  ports:
+#    - "3306:3306/tcp"
+  volumes:
+    - ./data:/var/lib/mysql
