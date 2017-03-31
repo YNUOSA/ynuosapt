@@ -1,5 +1,6 @@
 .idea/
-discuz/html/
-mysql/data/
-xbtit/html/
-!ynuosapt/
+src/
+/discuz/html/
+/mysql/data/
+/xbtit/html/
+/xbtit/torrents/
