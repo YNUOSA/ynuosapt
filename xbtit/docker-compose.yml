@@ -1,0 +1,7 @@
+xbtit:
+  build: .
+  ports:
+    - "880:80/tcp"
+    - "8443:443/tcp"
+  volumes:
+    - ./html:/var/www/html
