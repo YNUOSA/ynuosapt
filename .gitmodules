@@ -1,0 +1,3 @@
+[submodule "discuz/html/source/plugin/ynuosapt"]
+	path = discuz/html/source/plugin/ynuosapt
+	url = git@gitlab.ynuosa.org:WAR-BOYS/discuz-ynuosapt-plugin.git
