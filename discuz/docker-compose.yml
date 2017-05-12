@@ -5,3 +5,6 @@ discuz:
     - "443:443/tcp"
   volumes:
     - ./html:/var/www/html
+    - ./confphp:/usr/local/etc/php/conf.d
+  environment:
+    XDEBUG_CONFIG: remote_host=172.17.0.1
