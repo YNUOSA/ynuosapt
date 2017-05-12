@@ -1,3 +1,9 @@
 .idea/
 /mysql/data/
 /xbtit/torrents/
+bak/
+discuz/html/data/attachment/category/
+discuz/html/data/attachment/forum/
+discuz/html/data/backup/
+discuz/html/upload/
+mysql/log/
