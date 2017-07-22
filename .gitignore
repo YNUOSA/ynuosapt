@@ -2,6 +2,7 @@
 /mysql/data/
 /xbtit/torrents/
 bak/
+bak/*
 discuz/html/data/attachment/category/
 discuz/html/data/attachment/forum/
 discuz/html/data/backup/
