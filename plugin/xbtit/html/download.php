@@ -30,80 +30,78 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////
 
-$THIS_BASEPATH=__DIR__;
+$THIS_BASEPATH = __DIR__;
 
 require_once("$THIS_BASEPATH/include/functions.php");
-require_once ("$THIS_BASEPATH/include/BDecode.php");
-require_once ("$THIS_BASEPATH/include/BEncode.php");
+require_once("$THIS_BASEPATH/include/BDecode.php");
+require_once("$THIS_BASEPATH/include/BEncode.php");
 
 dbconn();
-
-if (!$CURUSER || $CURUSER["can_download"]=="no")
-   {
-       require(load_language("lang_main.php"));
-       die($language["NOT_AUTH_DOWNLOAD"]);
-   }
-
-if(ini_get('zlib.output_compression'))
-  ini_set('zlib.output_compression','Off');
-
-$infohash=mysqli_real_escape_string($GLOBALS['conn'],$_GET['id']);
-$filepath=$TORRENTSDIR.'/'.$infohash.'.btf';
-
-if (!is_file($filepath) || !is_readable($filepath))
-  {
-
-      require(load_language("lang_main.php"));
-      die($language["CANT_FIND_TORRENT"]);
-  }
-
-$f=rawurlencode(html_entity_decode($_GET["f"]));
-
-// pid code begin
-$row =get_result("SELECT pid FROM {$TABLE_PREFIX}users WHERE id=".$CURUSER['uid'],true,$btit_settings['cache_duration']);
-$pid=$row[0]["pid"];
-if (!$pid)
-{
-    $pid=md5(uniqid(rand(),true));
-    do_sqlquery("UPDATE {$TABLE_PREFIX}users SET pid='".$pid."' WHERE id='".$CURUSER['uid']."'");
-    if ($XBTT_USE)
-        do_sqlquery("UPDATE xbt_users SET torrent_pass='".$pid."' WHERE uid='".$CURUSER['uid']."'");
+if (!isset($_GET['uid'])) {
+    if (!$CURUSER || $CURUSER["can_download"] == "no") {
+        require(load_language("lang_main.php"));
+        die($language["NOT_AUTH_DOWNLOAD"]);
+    }
 }
 
 
-$result=get_result("SELECT * FROM {$TABLE_PREFIX}files WHERE info_hash='".$infohash."'",true,$btit_settings['cache_duration']);
+if (ini_get('zlib.output_compression'))
+    ini_set('zlib.output_compression', 'Off');
+
+$infohash = mysqli_real_escape_string($GLOBALS['conn'], $_GET['id']);
+$filepath = $TORRENTSDIR . '/' . $infohash . '.btf';
+
+if (!is_file($filepath) || !is_readable($filepath)) {
+
+    require(load_language("lang_main.php"));
+    die($language["CANT_FIND_TORRENT"]);
+}
+
+$f = rawurlencode(html_entity_decode($_GET["f"]));
+
+// pid code begin
+if (isset($_GET['uid'])) {
+    $row = get_result("SELECT pid FROM {$TABLE_PREFIX}users WHERE id=" . $_GET['uid'], true, $btit_settings['cache_duration']);
+} else {
+    $row = get_result("SELECT pid FROM {$TABLE_PREFIX}users WHERE id=" . $CURUSER['uid'], true, $btit_settings['cache_duration']);
+
+}
+
+$pid = $row[0]["pid"];
+if (!$pid) {
+    $pid = md5(uniqid(rand(), true));
+    do_sqlquery("UPDATE {$TABLE_PREFIX}users SET pid='" . $pid . "' WHERE id='" . $CURUSER['uid'] . "'");
+    if ($XBTT_USE)
+        do_sqlquery("UPDATE xbt_users SET torrent_pass='" . $pid . "' WHERE uid='" . $CURUSER['uid'] . "'");
+}
+
+
+$result = get_result("SELECT * FROM {$TABLE_PREFIX}files WHERE info_hash='" . $infohash . "'", true, $btit_settings['cache_duration']);
 $row = $result[0];
 
-if ($row["external"]=="yes" || !$PRIVATE_ANNOUNCE)
-{
+if ($row["external"] == "yes" || !$PRIVATE_ANNOUNCE) {
     $fd = fopen($filepath, "rb");
     $alltorrent = fread($fd, filesize($filepath));
     fclose($fd);
     header("Content-Type: application/x-bittorrent");
-    header('Content-Disposition: attachment; filename="'.$f.'"');
+    header('Content-Disposition: attachment; filename="' . $f . '"');
     print($alltorrent);
-}
-else
-{
+} else {
     $fd = fopen($filepath, "rb");
     $alltorrent = fread($fd, filesize($filepath));
     $array = BDecode($alltorrent);
     fclose($fd);
 
     if ($XBTT_USE)
-        $array["announce"] = $XBTT_URL."/$pid/announce";
+        $array["announce"] = $XBTT_URL . "/$pid/announce";
     else
-        $array["announce"] = $BASEURL."/announce.php?pid=$pid";
+        $array["announce"] = $BASEURL . "/announce.php?pid=$pid";
 
-    if (isset($array["announce-list"]) && is_array($array["announce-list"]))
-    {
-        for ($i=0;$i<count($array["announce-list"]);$i++)
-        {
-            for ($j=0;$j<count($array["announce-list"][$i]);$j++)
-            {
-                if (in_array($array["announce-list"][$i][$j],$TRACKER_ANNOUNCEURLS))
-                {
-                    if (strpos($array["announce-list"][$i][$j],"announce.php")===false)
+    if (isset($array["announce-list"]) && is_array($array["announce-list"])) {
+        for ($i = 0; $i < count($array["announce-list"]); $i++) {
+            for ($j = 0; $j < count($array["announce-list"][$i]); $j++) {
+                if (in_array($array["announce-list"][$i][$j], $TRACKER_ANNOUNCEURLS)) {
+                    if (strpos($array["announce-list"][$i][$j], "announce.php") === false)
                         $array["announce-list"][$i][$j] = trim(str_replace("/announce", "/$pid/announce", $array["announce-list"][$i][$j]));
                     else
                         $array["announce-list"][$i][$j] = trim(str_replace("/announce.php", "/announce.php?pid=$pid", $array["announce-list"][$i][$j]));
@@ -115,7 +113,7 @@ else
     $alltorrent = BEncode($array);
 
     header("Content-Type: application/x-bittorrent");
-    header('Content-Disposition: attachment; filename="'.$f.'"');
+    header('Content-Disposition: attachment; filename="' . $f . '"');
     print($alltorrent);
 }
 ?>

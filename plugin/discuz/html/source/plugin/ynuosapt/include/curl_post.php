@@ -19,7 +19,7 @@ function curl_post($uid, $filename, $info, $file_path, $category = 4, $anonymous
 
     curl_setopt_array($curl, array(
         CURLOPT_PORT => "80",
-        CURLOPT_URL => "http://172.17.0.4/index.php?page=upload",
+        CURLOPT_URL => "http://172.17.0.3/index.php?page=upload",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "utf8",
         CURLOPT_MAXREDIRS => 10,

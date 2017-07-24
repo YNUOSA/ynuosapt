@@ -49,6 +49,7 @@ class threadplugin_ynuosapt
                 if (!strpos($result, "Upload successful! The torrent has been added."))
                     if (!strpos($result, "This torrent may already exist in our database. ")) {
                         echo($result);
+                        var_dump($result);
                         showmessage("已有相同种子,请不要发布重复资源");
                     } else {
                         showmessage("系统错误!请联系管理员  str_ruiling@outlook.com");

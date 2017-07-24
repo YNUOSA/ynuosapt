@@ -1,7 +1,7 @@
 <?php
 
 define('UC_CONNECT', 'mysql');
-define('UC_DBHOST', '172.17.0.2');
+define('UC_DBHOST', 'mysql');
 define('UC_DBUSER', 'root');
 define('UC_DBPW', '123456');
 define('UC_DBNAME', 'ultrax');
@@ -9,11 +9,12 @@ define('UC_DBCHARSET', 'utf8');
 define('UC_DBTABLEPRE', '`ultrax`.pre_ucenter_');
 define('UC_DBCONNECT', '0');
 define('UC_KEY', '6f58XchualZ15mPU9mq7nJAArbe9HuXTeTFNRkY');
-define('UC_API', 'http://localhost/uc_server');
+define('UC_API', 'http://192.168.20.128/uc_server');
 define('UC_CHARSET', 'utf-8');
 define('UC_IP', '');
 define('UC_APPID', '2');
 define('UC_PPP', '20');
+
 $dbhost = '172.17.0.2';            // 数据库服务器
 $dbuser = 'root';            // 数据库用户名
 $dbpw = '123456';                // 数据库密码

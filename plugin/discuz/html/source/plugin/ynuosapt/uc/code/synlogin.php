@@ -93,8 +93,9 @@ function pass_the_salt($len = 5)
 
 function logToFile($msg)
 {
-    $logfile = fopen("sync.log", "a");
-    fwrite($logfile, $msg);
+    $logFile = fopen("ynuosaptsyn.log", "a");
+    fwrite($logFile, $msg . "\n");
 }
+
 
 ?>
