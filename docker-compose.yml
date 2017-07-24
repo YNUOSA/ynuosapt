@@ -20,6 +20,8 @@ discuz:
     - ./discuz/confphp:/usr/local/etc/php/conf.d
   environment:
     XDEBUG_CONFIG: remote_host=172.17.0.1
+  links:
+    - mysql
 
 #build xbtit
 xbtit:
@@ -32,3 +34,5 @@ xbtit:
     - ./xbtit/confphp:/usr/local/etc/php/conf.d
   environment:
     XDEBUG_CONFIG: remote_host=172.17.0.1
+  links:
+    - mysql

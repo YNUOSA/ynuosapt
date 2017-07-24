@@ -366,9 +366,9 @@ class discuz_application extends discuz_base{
 		if(!empty($temp)) {
 			$temp = strtoupper(urldecode(urldecode($temp)));
 			foreach ($check as $str) {
-				if(strpos($temp, $str) !== false) {
-					system_error('request_tainting');
-				}
+//				if(strpos($temp, $str) !== false) {
+//					system_error('request_tainting');
+//				}
 			}
 		}
 

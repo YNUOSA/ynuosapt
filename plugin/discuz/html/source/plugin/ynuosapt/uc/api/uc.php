@@ -156,16 +156,18 @@ class uc_note
 
         header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
         _setcookie('Example_auth', _authcode($uid . "\t" . $username, 'ENCODE'));
-
-        $db = mysqli_connect("172.17.0.2", "root", "123456", "discuz");
-        mysqli_query($db, " INSERT INTO `newt` (n,uid) VALUES ('synlogin','" . $uid . "') ");
-        mysqli_close($db);
+        //todo 这里写同步登录的事件
+//        $db = mysqli_connect("172.17.0.2", "root", "123456", "discuz");
+//        mysqli_query($db, " INSERT INTO `newt` (n,uid) VALUES ('synlogin','" . $uid . "') ");
+//        mysqli_close($db);
+        logToFile("synlogin:" . $uid);
         xbtit_syncuser($username, $uid);
         return API_RETURN_SUCCEED;
     }
 
     function synlogout($get, $post)
     {
+        require '../code/synlogin.php';
         if (!API_SYNLOGOUT) {
             return API_RETURN_FORBIDDEN;
         }
@@ -173,11 +175,8 @@ class uc_note
         //note 同步登出 API 接口
         header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
         _setcookie('Example_auth', '', -86400 * 365);
-
-        $db = mysqli_connect("172.17.0.2", "root", "123456", "discuz");
-        mysqli_query($db, " INSERT INTO `newt` (n) VALUES ('synlogout') ");
-        mysqli_close($db);
-
+        //todo 这里写同步登出的事件
+        logToFile("synlogin:" . $get);
         return API_RETURN_SUCCEED;
 
     }

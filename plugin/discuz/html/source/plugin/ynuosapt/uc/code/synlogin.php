@@ -91,4 +91,10 @@ function pass_the_salt($len = 5)
     return $salt;
 }
 
+function logToFile($msg)
+{
+    $logfile = fopen("sync.log", "a");
+    fwrite($logfile, $msg);
+}
+
 ?>

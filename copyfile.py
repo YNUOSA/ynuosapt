@@ -27,7 +27,7 @@ def copyFile(filePath):
         os.makedirs(dstPathDir)
     try:
         shutil.copyfile(srcPath, dstPath)
-        print "Copy & Overwrite file : " + filePath + ". Done!"
+        #print "Copy & Overwrite file : " + filePath + ". Done!"
     except Exception, e:
         print e
 
@@ -54,7 +54,6 @@ def getFiles(path):
 
 def main():
     # shutil.rmtree(rootpath + config['bakPath'])
-    print "Backup directory clear!"
     # for item in getFileList(rootpath + config['bakPath']):
     #     backupFile(item)
     for item in getFileList(rootpath + config['pluginPath']):

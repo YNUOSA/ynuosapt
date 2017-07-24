@@ -42,7 +42,8 @@ CREATE TABLE `ultrax`.`pre_ynuosapt_tid_files` (
   `uploader` VARCHAR(20) NULL,
   PRIMARY KEY (`lid`));
 ```
-5. 进入ucenter,添加一个应用,并配置插件目录下uc目录的config.inc.php  
+5. 进入ucenter,添加一个应用,并配置插件目录下uc目录的config.inc.php    
+http://your.domain.name/source/plugin/ynuosapt/uc  
 (1. 先不要开启同步登陆 2. 关闭discuz的同步登陆 3.开启ynuosapt的同步登陆 4. 开启discuz的同步登陆)
 5. 开启插件
 6. 修改版面权限以支持特殊主题:PT资源(具体操作请查阅discuz使用手册)

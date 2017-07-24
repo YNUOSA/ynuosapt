@@ -7,9 +7,9 @@ build:
 	rm discuz/html/utility/ -rf
 	mv discuz/html/upload/* discuz/html/
 	mv xbtit/html/xbtit/* xbtit/html/
-	python copyfile.py
-	chmod 777 -R ./discuz/html/
-	chmod 777 -R ./xbtit/html/
+	sudo python copyfile.py
+	sudo chmod 777 -R ./discuz/html/
+	sudo chmod 777 -R ./xbtit/html/
 	
 start:
 	sudo service apache2 stop
@@ -25,7 +25,7 @@ rebuild:
 	make clean
 	make build
 
-#finish:
-#	sudo chmod 777 -R discuz/html/
-#	sudo chmod 777 -R xbtit/html/
-#	echo "['plugindeveloper'] = 2;" >> ./discuz/html/config/config_global.php
+finish:
+	sudo chmod 777 -R discuz/html/
+	sudo chmod 777 -R xbtit/html/
+	echo "['plugindeveloper'] = 2;" >> ./discuz/html/config/config_global.php
