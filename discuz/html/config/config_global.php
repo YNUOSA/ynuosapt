@@ -15,7 +15,7 @@ $_config['db']['slave'] = '';
 $_config['db']['common']['slave_except_table'] = '';
 
 // --------------------------  CONFIG MEMORY  --------------------------- //
-$_config['memory']['prefix'] = 'yjZ0pv_';
+$_config['memory']['prefix'] = '5rLXDN_';
 $_config['memory']['redis']['server'] = '';
 $_config['memory']['redis']['port'] = 6379;
 $_config['memory']['redis']['pconnect'] = 1;
@@ -50,12 +50,12 @@ $_config['output']['ajaxvalidate'] = '0';
 $_config['output']['iecompatible'] = '0';
 
 // --------------------------  CONFIG COOKIE  --------------------------- //
-$_config['cookie']['cookiepre'] = 'HSkt_';
+$_config['cookie']['cookiepre'] = 'vVXb_';
 $_config['cookie']['cookiedomain'] = '';
 $_config['cookie']['cookiepath'] = '/';
 
 // -------------------------  CONFIG SECURITY  -------------------------- //
-$_config['security']['authkey'] = 'f1a3f9nK8Lnvso8n';
+$_config['security']['authkey'] = 'efb20bv2Y1oJ1VmP';
 $_config['security']['urlxssdefend'] = 1;
 $_config['security']['attackevasive'] = '0';
 $_config['security']['querysafe']['status'] = 1;
@@ -96,7 +96,7 @@ $_config['remote']['cron'] = '0';
 
 // ---------------------------  CONFIG INPUT  --------------------------- //
 $_config['input']['compatible'] = 1;
-$_config['plugindeveloper'] = 2;
+
 
 // -------------------  THE END  -------------------- //
 

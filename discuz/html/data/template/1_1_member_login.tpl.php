@@ -1,6 +1,6 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('login');
 0
-|| checktplrefresh('./template/default/member/login.htm', './template/default/common/seccheck.htm', 1500877741, '1', './data/template/1_1_member_login.tpl.php', './template/default', 'member/login')
+|| checktplrefresh('./template/default/member/login.htm', './template/default/common/seccheck.htm', 1504229402, '1', './data/template/1_1_member_login.tpl.php', './template/default', 'member/login')
 ;?><?php include template('common/header'); $loginhash = 'L'.random(4);?><?php if(empty($_GET['infloat'])) { ?>
 <div id="ct" class="ptm wp w cl">
 <div class="nfl" id="main_succeed" style="display: none">
@@ -16,7 +16,7 @@
 <div class="bm">
 <div class="bm_h bbs">
 <span class="y">
-<?php echo '<hook>[string logging_side_top]</hook>';if(!empty($_G['setting']['pluginhooks']['logging_side_top'])) echo $_G['setting']['pluginhooks']['logging_side_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['logging_side_top'])) echo $_G['setting']['pluginhooks']['logging_side_top'];?>
 <a href="member.php?mod=<?php echo $_G['setting']['regname'];?>" class="xi2">没有帐号？<a href="member.php?mod=<?php echo $_G['setting']['regname'];?>"><?php echo $_G['setting']['reglinkname'];?></a></a>
 </span>
 <?php if(!$secchecklogin2) { ?>
@@ -36,7 +36,7 @@
 </em>
 <span><?php if(!empty($_GET['infloat']) && !isset($_GET['frommessage'])) { ?><a href="javascript:;" class="flbc" onclick="hideWindow('<?php echo $_GET['handlekey'];?>', 0, 1);" title="关闭">关闭</a><?php } ?></span>
 </h3>
-<?php echo '<hook>[string logging_top]</hook>';if(!empty($_G['setting']['pluginhooks']['logging_top'])) echo $_G['setting']['pluginhooks']['logging_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['logging_top'])) echo $_G['setting']['pluginhooks']['logging_top'];?>
 <form method="post" autocomplete="off" name="login" id="loginform_<?php echo $loginhash;?>" class="cl" onsubmit="<?php if($this->setting['pwdsafety']) { ?>pwmd5('password3_<?php echo $loginhash;?>');<?php } ?>pwdclear = 1;ajaxpost('loginform_<?php echo $loginhash;?>', 'returnmessage_<?php echo $loginhash;?>', 'returnmessage_<?php echo $loginhash;?>', 'onerror');return false;" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes<?php if(!empty($_GET['handlekey'])) { ?>&amp;handlekey=<?php echo $_GET['handlekey'];?><?php } if(isset($_GET['frommessage'])) { ?>&amp;frommessage<?php } ?>&amp;loginhash=<?php echo $loginhash;?>">
 <div class="c cl">
 <input type="hidden" name="formhash" value="<?php echo FORMHASH;?>" />
@@ -122,7 +122,7 @@ $sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
 <script type="text/javascript" reload="1">updateseccode('c<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
 <?php } } ?>
 
-<?php echo '<hook>[string logging_input]</hook>';if(!empty($_G['setting']['pluginhooks']['logging_input'])) echo $_G['setting']['pluginhooks']['logging_input'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['logging_input'])) echo $_G['setting']['pluginhooks']['logging_input'];?>
 
 <div class="rfm <?php if(!empty($_GET['infloat'])) { ?> bw0<?php } ?>">
 <table>
@@ -153,7 +153,7 @@ $sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
 <table>
 <tr>
 <th>快捷登录:</th>
-<td><?php echo '<hook>[string logging_method]</hook>';if(!empty($_G['setting']['pluginhooks']['logging_method'])) echo $_G['setting']['pluginhooks']['logging_method'];?></td>
+<td><?php if(!empty($_G['setting']['pluginhooks']['logging_method'])) echo $_G['setting']['pluginhooks']['logging_method'];?></td>
 </tr>
 </table>
 </div>

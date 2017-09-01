@@ -1,6 +1,6 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('register');
 0
-|| checktplrefresh('./template/default/member/register.htm', './template/default/common/seccheck.htm', 1500877687, '1', './data/template/1_1_member_register.tpl.php', './template/default', 'member/register')
+|| checktplrefresh('./template/default/member/register.htm', './template/default/common/seccheck.htm', 1504229378, '1', './data/template/1_1_member_register.tpl.php', './template/default', 'member/register')
 ;?><?php include template('common/header'); ?><script type="text/javascript">
 var strongpw = new Array();
 <?php if($_G['setting']['strongpw']) { if(is_array($_G['setting']['strongpw'])) foreach($_G['setting']['strongpw'] as $key => $val) { ?>strongpw[<?php echo $key;?>] = <?php echo $val;?>;
@@ -26,7 +26,7 @@ var pwlength = <?php if($_G['setting']['pwlength']) { ?><?php echo $_G['setting'
 
 <div class="bm_h bbs" id="main_hnav">
 <span class="y">
-<?php echo '<hook>[string register_side_top]</hook>';if(!empty($_G['setting']['pluginhooks']['register_side_top'])) echo $_G['setting']['pluginhooks']['register_side_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['register_side_top'])) echo $_G['setting']['pluginhooks']['register_side_top'];?>
 <?php if($_GET['action'] == 'activation') { ?>
 放弃激活，现在<a href="member.php?mod=<?php echo $_G['setting']['regname'];?>"><?php echo $_G['setting']['reglinkname'];?></a>
 <?php } else { ?>
@@ -52,7 +52,7 @@ var pwlength = <?php if($_G['setting']['pwlength']) { ?><?php echo $_G['setting'
 <?php } ?>
 <div class="mtw">
 <div id="reginfo_a">
-<?php echo '<hook>[string register_top]</hook>';if(!empty($_G['setting']['pluginhooks']['register_top'])) echo $_G['setting']['pluginhooks']['register_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['register_top'])) echo $_G['setting']['pluginhooks']['register_top'];?>
 <?php if($sendurl) { ?>
 <div class="rfm">
 <table>
@@ -183,7 +183,7 @@ showDialog(msg, 'notice');
 </table>
 </div>
 <?php } } } ?>
-<?php echo '<hook>[string register_input]</hook>';if(!empty($_G['setting']['pluginhooks']['register_input'])) echo $_G['setting']['pluginhooks']['register_input'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['register_input'])) echo $_G['setting']['pluginhooks']['register_input'];?>
 
 <?php if($secqaacheck || $seccodecheck) { ?><?php
 $sectpl = <<<EOF
@@ -228,7 +228,7 @@ $sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
 <table>
 <tr>
 <th>快捷登录:</th>
-<td><?php echo '<hook>[string register_logging_method]</hook>';if(!empty($_G['setting']['pluginhooks']['register_logging_method'])) echo $_G['setting']['pluginhooks']['register_logging_method'];?></td>
+<td><?php if(!empty($_G['setting']['pluginhooks']['register_logging_method'])) echo $_G['setting']['pluginhooks']['register_logging_method'];?></td>
 </tr>
 </table>
 </div>
@@ -236,7 +236,7 @@ $sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
 </div>
 </form>
 <?php } ?>
-<?php echo '<hook>[string register_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['register_bottom'])) echo $_G['setting']['pluginhooks']['register_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['register_bottom'])) echo $_G['setting']['pluginhooks']['register_bottom'];?>
 </div>
 <div id="layer_regmessage"class="f_c blr nfl" style="display: none">
 <div class="c"><div class="alert_right">

@@ -1,9 +1,9 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); 
 0
-|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/seditor.htm', 1500878105, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
-|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/forum/seccheck_post.htm', 1500878105, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
-|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/upload.htm', 1500878105, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
-|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/seccheck.htm', 1500878105, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
+|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/seditor.htm', 1504229863, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
+|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/forum/seccheck_post.htm', 1504229863, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
+|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/upload.htm', 1504229863, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
+|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/seccheck.htm', 1504229863, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
 ;?>
 <script type="text/javascript">
 var postminchars = parseInt('<?php echo $_G['setting']['minpostsize'];?>');
@@ -17,7 +17,7 @@ var fid = parseInt('<?php echo $_G['fid'];?>');
 </div>
 <div class="bm_c">
 <form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=newthread&amp;fid=<?php echo $_G['fid'];?>&amp;topicsubmit=yes&amp;infloat=yes&amp;handlekey=fastnewpost" onSubmit="return fastpostvalidate(this)">
-<?php echo '<hook>[string forumdisplay_fastpost_content]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_content'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_content'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_content'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_content'];?>
 
 <div id="fastpostreturn" style="margin:-5px 0 5px"></div>
 
@@ -42,9 +42,9 @@ var fid = parseInt('<?php echo $_G['fid'];?>');
 <div class="tedt">
 <div class="bar">
 <span class="y">
-<?php echo '<hook>[string forumdisplay_fastpost_func_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_func_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_func_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_func_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_func_extra'];?>
 <a href="forum.php?mod=post&amp;action=newthread&amp;fid=<?php echo $_G['fid'];?>" onclick="switchAdvanceMode(this.href);doane(event);">高级模式</a>
-</span><?php $seditor = array('fastpost', array('at', 'bold', 'color', 'img', 'link', 'quote', 'code', 'smilies'), !$allowfastpost ? 1 : 0, $allowpostattach && $allowfastpost ? '<span class="pipe z">|</span><span id="spanButtonPlaceholder">'.lang('template', 'upload').'</span>' : '');?><?php echo '<hook>[string forumdisplay_fastpost_ctrl_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_ctrl_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_ctrl_extra'];?><script src="<?php echo $_G['setting']['jspath'];?>seditor.js?<?php echo VERHASH;?>" type="text/javascript"></script>
+</span><?php $seditor = array('fastpost', array('at', 'bold', 'color', 'img', 'link', 'quote', 'code', 'smilies'), !$allowfastpost ? 1 : 0, $allowpostattach && $allowfastpost ? '<span class="pipe z">|</span><span id="spanButtonPlaceholder">'.lang('template', 'upload').'</span>' : '');?><?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_ctrl_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_ctrl_extra'];?><script src="<?php echo $_G['setting']['jspath'];?>seditor.js?<?php echo VERHASH;?>" type="text/javascript"></script>
 <div class="fpd">
 <?php if(in_array('bold', $seditor['1'])) { ?>
 <a href="javascript:;" title="文字加粗" class="fbld"<?php if(empty($seditor['2'])) { ?> onclick="seditor_insertunit('<?php echo $seditor['0'];?>', '[b]', '[/b]');doane(event);"<?php } ?>>B</a>
@@ -80,7 +80,7 @@ var fid = parseInt('<?php echo $_G['fid'];?>');
 <?php } } else { ?>
 您现在无权发帖。<a href="javascript:;" onclick="$('newspecial').onclick()" class="xi2">点击查看原因</a>
 <?php } ?>
-<?php echo '<hook>[string global_login_text]</hook>';if(!empty($_G['setting']['pluginhooks']['global_login_text'])) echo $_G['setting']['pluginhooks']['global_login_text'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['global_login_text'])) echo $_G['setting']['pluginhooks']['global_login_text'];?>
 </div>
 <?php } ?>
 </div>
@@ -182,7 +182,7 @@ debug: false
 });
 </script>
 <?php } else { ?>
-<?php echo '<hook>[string forumdisplay_fastpost_upload_extend]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_upload_extend'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_upload_extend'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_upload_extend'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_upload_extend'];?>
 <?php } ?>
 </div>
 <?php } ?>
@@ -190,11 +190,11 @@ debug: false
 <p class="ptm pnpost">
 <a href="home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=<?php echo $_G['fid'];?>" class="y" target="_blank">本版积分规则</a>
 <button <?php if($fastpost) { ?>type="submit" <?php } elseif(!$_G['uid']) { ?>type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" <?php } if(!$seccodecheck && !$secqaacheck) { ?>onmouseover="checkpostrule('seccheck_fastpost', 'ac=newthread');this.onmouseover=null" <?php } ?>name="topicsubmit" id="fastpostsubmit" value="topicsubmit" tabindex="13" class="pn pnc"><strong>发表帖子</strong></button>
-<?php echo '<hook>[string forumdisplay_fastpost_btn_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_btn_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_btn_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_btn_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_btn_extra'];?>
 <?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_sync_method'])) { ?>
 <span>
 将此主题同步到:
-<?php echo '<hook>[string forumdisplay_fastpost_sync_method]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_sync_method'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_sync_method'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_sync_method'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_sync_method'];?>
 </span>
 <?php } if(helper_access::check_module('follow')) { ?>
 <label><input type="checkbox" name="adddynamic" class="pc" value="1" <?php if($_G['forum']['allowfeed'] && !$_G['tid'] && empty($_G['forum']['viewperm'])) { ?>checked="checked"<?php } ?> />转播给听众</label>

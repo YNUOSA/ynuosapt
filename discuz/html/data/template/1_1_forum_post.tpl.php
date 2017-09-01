@@ -1,18 +1,18 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('post');
 0
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_extra.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_body.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_attribute.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/seccheck_post.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor_menu.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/editor_menu_forum.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/upload.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/seccheck.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1500878107, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_extra.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_body.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_attribute.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/seccheck_post.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor_menu.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/editor_menu_forum.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/upload.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/seccheck.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1504229865, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
 ;?><?php include template('common/header'); ?><script type="text/javascript">
 var allowpostattach = parseInt('<?php echo $_G['group']['allowpostattach'];?>');
 var allowpostimg = parseInt('<?php echo $allowpostimg;?>');
@@ -253,7 +253,7 @@ onsubmit="return validate(this)">
 <?php if($_GET['action'] == 'newthread' && $_G['setting']['sitemessage']['newthread'] || $_GET['action'] == 'reply' && $_G['setting']['sitemessage']['reply']) { ?>
 <span id="custominfo" class="y cur1<?php if($_GET['action'] != 'reply') { ?> mtn<?php } ?>">&nbsp;<img src="<?php echo IMGDIR;?>/info_small.gif" alt="帮助" /></span>
 <?php } ?>
-<?php echo '<hook>[string post_top]</hook>';if(!empty($_G['setting']['pluginhooks']['post_top'])) echo $_G['setting']['pluginhooks']['post_top'];?><div class="pbt cl">
+<?php if(!empty($_G['setting']['pluginhooks']['post_top'])) echo $_G['setting']['pluginhooks']['post_top'];?><div class="pbt cl">
 <?php if($sortid) { ?>
 <input type="hidden" name="sortid" value="<?php echo $sortid;?>" />
 <?php } if($isfirstpost && !empty($_G['forum']['threadtypes']['types'])) { ?>
@@ -328,7 +328,7 @@ onsubmit="return validate(this)">
 </div>
 </div>
 <?php if(!empty($_G['setting']['pluginhooks']['post_editorctrl_right'])) { ?>
-<div class="y"><?php echo '<hook>[string post_editorctrl_right]</hook>';if(!empty($_G['setting']['pluginhooks']['post_editorctrl_right'])) echo $_G['setting']['pluginhooks']['post_editorctrl_right'];?></div>
+<div class="y"><?php if(!empty($_G['setting']['pluginhooks']['post_editorctrl_right'])) echo $_G['setting']['pluginhooks']['post_editorctrl_right'];?></div>
 <?php } ?>
 <div id="<?php echo $editorid;?>_button" class="btn cl">
 <div class="b2r nbr nbl" id="<?php echo $editorid;?>_adv_s2">
@@ -384,10 +384,10 @@ onsubmit="return validate(this)">
 <?php } if(($_GET['action'] == 'newthread' || $_GET['action'] == 'reply' || $_GET['action'] == 'edit') && $_G['group']['allowat']) { ?>
 <a id="<?php echo $editorid;?>_at" title="@好友和关注的人" menupos="43" menuwidth="600">@朋友</a>
 <?php } ?>
-<?php echo '<hook>[string post_editorctrl_left]</hook>';if(!empty($_G['setting']['pluginhooks']['post_editorctrl_left'])) echo $_G['setting']['pluginhooks']['post_editorctrl_left'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_editorctrl_left'])) echo $_G['setting']['pluginhooks']['post_editorctrl_left'];?>
 </div>
 <div class="b2r esb" id="<?php echo $editorid;?>_adv_s3">
-<?php echo '<hook>[string post_editorctrl_top]</hook>';if(!empty($_G['setting']['pluginhooks']['post_editorctrl_top'])) echo $_G['setting']['pluginhooks']['post_editorctrl_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_editorctrl_top'])) echo $_G['setting']['pluginhooks']['post_editorctrl_top'];?>
 <a id="<?php echo $editorid;?>_quote" title="添加引用文字">引用</a>
 <a id="<?php echo $editorid;?>_code" title="添加代码文字">代码</a>
 <?php if($isfirstpost) { ?>
@@ -406,7 +406,7 @@ onsubmit="return validate(this)">
 <a id="<?php echo $editorid;?>_beginning" adv="1" title="添加起始动画" menupos="43" menuwidth="600">动画</a>
 <?php } if(is_array($_G['cache']['bbcodes_display'][$_G['groupid']])) foreach($_G['cache']['bbcodes_display'][$_G['groupid']] as $tag => $bbcode) { ?><a id="<?php echo $editorid;?>_cst<?php echo $bbcode['params'];?>_<?php echo $tag;?>" class="cst" title="<?php echo $bbcode['explanation'];?>"><img src="<?php echo STATICURL;?>image/common/<?php echo $bbcode['icon'];?>" title="<?php echo $bbcode['explanation'];?>" alt="<?php echo $tag;?>" /></a>
 <?php } ?>
-<?php echo '<hook>[string post_editorctrl_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['post_editorctrl_bottom'])) echo $_G['setting']['pluginhooks']['post_editorctrl_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_editorctrl_bottom'])) echo $_G['setting']['pluginhooks']['post_editorctrl_bottom'];?>
 </div>
 </div>
 </div>
@@ -451,7 +451,7 @@ var custombbcodes = new Array();
 <span id="<?php echo $editorid;?>_resize"><a href="javascript:;" onclick="editorsize('+');return false;">加大编辑框</a> | <a href="javascript:;" onclick="editorsize('-');return false;">缩小编辑框</a><img src="<?php echo STATICURL;?>image/editor/resize.gif" onmousedown="editorresize(event)" /></span>
 <?php } ?>
 </div></div>
-<?php echo '<hook>[string post_middle]</hook>';if(!empty($_G['setting']['pluginhooks']['post_middle'])) echo $_G['setting']['pluginhooks']['post_middle'];?><div id="post_extra" class="ptm cl">
+<?php if(!empty($_G['setting']['pluginhooks']['post_middle'])) echo $_G['setting']['pluginhooks']['post_middle'];?><div id="post_extra" class="ptm cl">
 <div id="post_extra_tb" class="cl" onselectstart="return false">
 <label id="extra_additional_b" onclick="showExtra('extra_additional')"><span id="extra_additional_chk">附加选项</span></label>
 <?php if($_GET['action'] == 'newthread' || $_GET['action'] == 'edit' && $isfirstpost) { if($_G['group']['allowsetreadperm']) { ?>
@@ -467,7 +467,7 @@ var custombbcodes = new Array();
 <?php } if($_G['group']['allowsetpublishdate'] && ($_GET['action'] == 'newthread' || ($_GET['action'] == 'edit' && $isfirstpost && $thread['displayorder'] == -4))) { ?>
 <label id="extra_pubdate_b" onclick="showExtra('extra_pubdate')"><span id="extra_pubdate_chk">定时发布</span></label>
 <?php } } ?>
-<?php echo '<hook>[string post_attribute_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['post_attribute_extra'])) echo $_G['setting']['pluginhooks']['post_attribute_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_attribute_extra'])) echo $_G['setting']['pluginhooks']['post_attribute_extra'];?>
 </div>
 
 <div id="post_extra_c">
@@ -637,7 +637,7 @@ var custombbcodes = new Array();
 </table>
 </div>
 
-<?php echo '<hook>[string post_attribute_extra_body]</hook>';if(!empty($_G['setting']['pluginhooks']['post_attribute_extra_body'])) echo $_G['setting']['pluginhooks']['post_attribute_extra_body'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_attribute_extra_body'])) echo $_G['setting']['pluginhooks']['post_attribute_extra_body'];?>
 </div>
 </div>
 <?php if($_GET['action'] != 'edit') { ?>
@@ -693,13 +693,13 @@ $sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
 <?php if($_GET['action'] == 'newthread' && !$modnewthreads || $_GET['action'] == 'edit' && $isfirstpost && !$modnewreplies && $thread['displayorder'] == -4) { ?>
 <button type="button" id="postsubmit" class="pn" value="true" onclick="$('postsave').value = 1;$('postsubmit').click();"><em>保存草稿</em></button>
 <?php } } ?>
-<?php echo '<hook>[string post_btn_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['post_btn_extra'])) echo $_G['setting']['pluginhooks']['post_btn_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_btn_extra'])) echo $_G['setting']['pluginhooks']['post_btn_extra'];?>
 <?php if(helper_access::check_module('follow') && $_GET['action'] != 'edit') { ?>
 <span id="adddynamicspan"><label><input type="checkbox" name="adddynamic" id="adddynamic" value="true" class="pc" <?php if($_G['forum']['allowfeed'] && !$_G['tid'] && empty($_G['forum']['viewperm'])) { ?>checked="checked"<?php } ?> />转播给听众</label></span>
 <?php } if(!empty($_G['setting']['pluginhooks']['post_sync_method'])) { ?>
 <span>
 将此主题同步到:
-<?php echo '<hook>[string post_sync_method]</hook>';if(!empty($_G['setting']['pluginhooks']['post_sync_method'])) echo $_G['setting']['pluginhooks']['post_sync_method'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_sync_method'])) echo $_G['setting']['pluginhooks']['post_sync_method'];?>
 </span>
 <?php } if($special == 2) { ?>
 <label><input type="checkbox" name="continueadd" value="yes" class="pc" />继续添加商品</label>
@@ -708,7 +708,7 @@ $sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
 <?php } ?>
 </div>
 
-<?php echo '<hook>[string post_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['post_bottom'])) echo $_G['setting']['pluginhooks']['post_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_bottom'])) echo $_G['setting']['pluginhooks']['post_bottom'];?>
 </div>
 </div>
 </div>
@@ -776,7 +776,7 @@ doane();
 <?php } } if(helper_access::check_module('album')) { ?><li <?php if(!$allowpostimg) { ?>class="current"<?php } ?> id="<?php echo $editorid;?>_btn_albumlist"><a href="javascript:;" hidefocus="true" onclick="switchImagebutton('albumlist');">相册图片</a></li><?php } ?>
 <li <?php if(!$allowpostimg && !helper_access::check_module('album')) { ?>class="current"<?php } ?> id="<?php echo $editorid;?>_btn_www"><a href="javascript:;" hidefocus="true" onclick="switchImagebutton('www');">网络图片</a></li>
 
-<?php echo '<hook>[string post_image_btn_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['post_image_btn_extra'])) echo $_G['setting']['pluginhooks']['post_image_btn_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_image_btn_extra'])) echo $_G['setting']['pluginhooks']['post_image_btn_extra'];?>
 </ul>
 <div unselectable="on" id="<?php echo $editorid;?>_www" <?php if($allowpostimg || helper_access::check_module('album')) { ?>style="display: none;"<?php } ?>>
 <div class="p_opt popupfix">
@@ -964,7 +964,7 @@ opObj.style.display = '';
 </div>
 </div>
 <?php } ?>
-<?php echo '<hook>[string post_image_tab_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['post_image_tab_extra'])) echo $_G['setting']['pluginhooks']['post_image_tab_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_image_tab_extra'])) echo $_G['setting']['pluginhooks']['post_image_tab_extra'];?>
 </div></td><td class="m_r"></td></tr><tr><td class="b_l"></td><td class="b_c"></td><td class="b_r"></td></tr></table>
 </div>
 
@@ -977,7 +977,7 @@ opObj.style.display = '';
 <?php if($allowuploadtoday) { ?>
 <li id="<?php echo $editorid;?>_btn_upload" style="display: none;" did="<?php echo $editorid;?>_btn_attachlist|upload"><a href="javascript:;" hidefocus="true" onclick="switchAttachbutton('upload');">普通上传</a></li>
 <?php } ?>
-<?php echo '<hook>[string post_attach_btn_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['post_attach_btn_extra'])) echo $_G['setting']['pluginhooks']['post_attach_btn_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_attach_btn_extra'])) echo $_G['setting']['pluginhooks']['post_attach_btn_extra'];?>
 </ul>
 
 <div class="p_opt" unselectable="on" id="<?php echo $editorid;?>_upload" style="display: none;">
@@ -1060,7 +1060,7 @@ opObj.style.display = '';
 <?php } } if($_G['group']['maxprice'] && $_G['setting']['maxincperthread']) { ?><br />附件出售最高收入上限为 <?php echo $_G['setting']['maxincperthread'];?> <?php echo $_G['setting']['extcredits'][$_G['setting']['creditstransextra']['1']]['unit'];?>&nbsp;&nbsp;&nbsp;&nbsp;<?php } ?>
 </div>
 </div>
-<?php echo '<hook>[string post_attach_tab_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['post_attach_tab_extra'])) echo $_G['setting']['pluginhooks']['post_attach_tab_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_attach_tab_extra'])) echo $_G['setting']['pluginhooks']['post_attach_tab_extra'];?>
 </div>
 <div class="o">
 <button onclick="hideAttachMenu('attach')" class="pn pnc" id="attach_confirms">
@@ -1219,7 +1219,7 @@ debug: false
 <?php } ?>
 </script>
 <?php } else { ?>
-<?php echo '<hook>[string post_upload_extend]</hook>';if(!empty($_G['setting']['pluginhooks']['post_upload_extend'])) echo $_G['setting']['pluginhooks']['post_upload_extend'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['post_upload_extend'])) echo $_G['setting']['pluginhooks']['post_upload_extend'];?>
 <?php } } ?>
 
 <script type="text/javascript">

@@ -37,7 +37,7 @@
 <input type="hidden" name="quickforward" value="yes" />
 <input type="hidden" name="handlekey" value="ls" />
 </div>
-<?php echo '<hook>[string global_login_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['global_login_extra'])) echo $_G['setting']['pluginhooks']['global_login_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['global_login_extra'])) echo $_G['setting']['pluginhooks']['global_login_extra'];?>
 </div>
 </form>
 

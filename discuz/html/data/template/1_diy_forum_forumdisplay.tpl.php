@@ -1,12 +1,12 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('forumdisplay');
 0
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_leftside.htm', 1500878105, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/recommend.htm', 1500878105, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/common/seccheck.htm', 1500878105, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_list.htm', 1500878105, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_sort.htm', 1500878105, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1500878105, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1500878105, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_leftside.htm', 1504229863, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/recommend.htm', 1504229863, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/common/seccheck.htm', 1504229863, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_list.htm', 1504229863, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_sort.htm', 1504229863, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1504229863, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1504229863, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
 ;?><?php include template('common/header'); if($_G['forum']['ismoderator']) { ?>
 <script src="<?php echo $_G['setting']['jspath'];?>forum_moderate.js?<?php echo VERHASH;?>" type="text/javascript"></script>
 <?php } ?>
@@ -23,7 +23,7 @@
 <div id="ct" class="wp cl<?php if($_G['forum']['allowside']) { ?> ct2<?php } ?>"<?php if($leftside) { ?> style="margin-left:<?php echo $_G['leftsidewidth_mwidth'];?>px"<?php } ?>>
 <?php if($leftside) { ?>
 <div id="sd_bdl" class="bdl" onmouseover="showMenu({'ctrlid':this.id, 'pos':'dz'});" style="width:<?php echo $_G['setting']['leftsidewidth'];?>px;margin-left:-<?php echo $_G['leftsidewidth_mwidth'];?>px">
-<?php echo '<hook>[string forumdisplay_leftside_top]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_leftside_top'])) echo $_G['setting']['pluginhooks']['forumdisplay_leftside_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_leftside_top'])) echo $_G['setting']['pluginhooks']['forumdisplay_leftside_top'];?>
 <!--[diy=diyleftsidetop]--><div id="diyleftsidetop" class="area"></div><!--[/diy]-->
 
 <div class="tbn" id="forumleftside"><?php if($leftside['favorites']) { ?>
@@ -53,7 +53,7 @@
 <?php } ?></div>
 
 <!--[diy=diyleftsidebottom]--><div id="diyleftsidebottom" class="area"></div><!--[/diy]-->
-<?php echo '<hook>[string forumdisplay_leftside_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_leftside_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_leftside_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_leftside_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_leftside_bottom'];?>
 </div>
 <?php } ?>
 
@@ -67,7 +67,7 @@
 <?php if(rssforumperm($_G['forum']) && $_G['setting']['rssstatus'] && !$_GET['archiveid'] && !$subforumonly) { ?><span class="pipe">|</span><a href="forum.php?mod=rss&amp;fid=<?php echo $_G['fid'];?>&amp;auth=<?php echo $rssauth;?>" class="fa_rss" target="_blank" title="RSS">订阅</a><?php } if(!empty($forumarchive)) { ?>
 <span class="pipe">|</span><a id="forumarchive" href="javascript:;" class="fa_achv" onmouseover="showMenu(this.id)"><?php if($_GET['archiveid']) { ?><?php echo $forumarchive[$_GET['archiveid']]['displayname'];?><?php } else { ?>存档<?php } ?></a>
 <?php } ?>
-<?php echo '<hook>[string forumdisplay_forumaction]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_forumaction'])) echo $_G['setting']['pluginhooks']['forumdisplay_forumaction'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_forumaction'])) echo $_G['setting']['pluginhooks']['forumdisplay_forumaction'];?>
 
 <?php if($_G['forum']['ismoderator']) { if($_G['forum']['recyclebin']) { ?>
 <span class="pipe">|</span><a href="<?php if($_G['adminid'] == 1) { ?>admin.php?mod=forum&action=recyclebin&frames=yes<?php } elseif($_G['forum']['ismoderator']) { ?>forum.php?mod=modcp&action=recyclebin&fid=<?php echo $_G['fid'];?><?php } ?>" class="fa_bin" target="_blank">回收站</a>
@@ -80,7 +80,7 @@
 <?php } ?>
 </strong>
 <?php } ?>
-<?php echo '<hook>[string forumdisplay_modlink]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_modlink'])) echo $_G['setting']['pluginhooks']['forumdisplay_modlink'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_modlink'])) echo $_G['setting']['pluginhooks']['forumdisplay_modlink'];?>
 <?php } ?>
 </span>
 <h1 class="xs2">
@@ -108,7 +108,7 @@
 <?php } ?>
 </div>
 
-<?php echo '<hook>[string forumdisplay_top]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_top'])) echo $_G['setting']['pluginhooks']['forumdisplay_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_top'])) echo $_G['setting']['pluginhooks']['forumdisplay_top'];?>
 
 <?php if($subexists && $_G['page'] == 1) { include template('forum/forumdisplay_subforum'); } ?>
 
@@ -150,7 +150,7 @@ slideImgTexts[<?php echo $k+1; ?>] = '<?php echo $imginfo['subject'];?>';
 </div>
 <?php } ?>
 
-<?php echo '<hook>[string forumdisplay_middle]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_middle'])) echo $_G['setting']['pluginhooks']['forumdisplay_middle'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_middle'])) echo $_G['setting']['pluginhooks']['forumdisplay_middle'];?>
 
 <?php if(!$subforumonly) { if($recommendgroups && !$_G['forum']['allowside']) { ?>
 <div class="bm bmw fl<?php if($_G['forum']['forumcolumns']) { ?> flg<?php } ?>">
@@ -440,11 +440,11 @@ getnewlivepostlist();
 <span id="fd_page_top"><?php echo $multipage;?></span>
 <span class="pgb y" <?php if($_G['setting']['visitedforums']) { ?>id="visitedforums" onmouseover="$('visitedforums').id = 'visitedforumstmp';this.id = 'visitedforums';showMenu({'ctrlid':this.id,'pos':'34'})"<?php } ?> ><a href="forum.php">返&nbsp;回</a></span>
 <?php if(!$_GET['archiveid']) { ?><a href="javascript:;" id="newspecial" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})"<?php if(!$_G['forum']['allowspecialonly'] && empty($_G['forum']['picstyle']) && !$_G['forum']['threadsorts']['required']) { ?> onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=<?php echo $_G['fid'];?>')"<?php } else { ?> onclick="location.href='forum.php?mod=post&action=newthread&fid=<?php echo $_G['fid'];?>';return false;"<?php } ?> title="发新帖"><img src="<?php echo IMGDIR;?>/pn_post.png" alt="发新帖" /></a><?php } ?>
-<?php echo '<hook>[string forumdisplay_postbutton_top]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_postbutton_top'])) echo $_G['setting']['pluginhooks']['forumdisplay_postbutton_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_postbutton_top'])) echo $_G['setting']['pluginhooks']['forumdisplay_postbutton_top'];?>
 </div>
 <?php if(($_G['forum']['threadtypes'] && $_G['forum']['threadtypes']['listable']) || count($_G['forum']['threadsorts']['types']) > 0) { ?>
 <ul id="thread_types" class="ttp bm cl">
-<?php echo '<hook>[string forumdisplay_threadtype_inner]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_threadtype_inner'])) echo $_G['setting']['pluginhooks']['forumdisplay_threadtype_inner'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_threadtype_inner'])) echo $_G['setting']['pluginhooks']['forumdisplay_threadtype_inner'];?>
 <li id="ttp_all" <?php if(!$_GET['typeid'] && !$_GET['sortid']) { ?>class="xw1 a"<?php } ?>><a href="forum.php?mod=forumdisplay&amp;fid=<?php echo $_G['fid'];?><?php if($_G['forum']['threadsorts']['defaultshow']) { ?>&amp;filter=sortall&amp;sortall=1<?php } if($_GET['archiveid']) { ?>&amp;archiveid=<?php echo $_GET['archiveid'];?><?php } ?>">全部</a></li>
 <?php if($_G['forum']['threadtypes']) { if(is_array($_G['forum']['threadtypes']['types'])) foreach($_G['forum']['threadtypes']['types'] as $id => $name) { if($_GET['typeid'] == $id) { ?>
 <li class="xw1 a"><a href="forum.php?mod=forumdisplay&amp;fid=<?php echo $_G['fid'];?><?php if($_GET['sortid']) { ?>&amp;filter=sortid&amp;sortid=<?php echo $_GET['sortid'];?><?php } if($_GET['archiveid']) { ?>&amp;archiveid=<?php echo $_GET['archiveid'];?><?php } ?>"><?php if($_G['forum']['threadtypes']['icons'][$id] && $_G['forum']['threadtypes']['prefix'] == 2) { ?><img class="vm" src="<?php echo $_G['forum']['threadtypes']['icons'][$id];?>" alt="" /> <?php } ?><?php echo $name;?><?php if($showthreadclasscount['typeid'][$id]) { ?><span class="xg1 num"><?php echo $showthreadclasscount['typeid'][$id];?></span><?php } ?></a></li>
@@ -455,11 +455,11 @@ getnewlivepostlist();
 <?php } else { ?>
 <li><a href="forum.php?mod=forumdisplay&amp;fid=<?php echo $_G['fid'];?>&amp;filter=sortid&amp;sortid=<?php echo $id;?><?php echo $forumdisplayadd['sortid'];?><?php if($_GET['archiveid']) { ?>&amp;archiveid=<?php echo $_GET['archiveid'];?><?php } ?>"><?php echo $name;?><?php if($showthreadclasscount['sortid'][$id]) { ?><span class="xg1 num"><?php echo $showthreadclasscount['sortid'][$id];?></span><?php } ?></a></li>
 <?php } } } ?>
-<?php echo '<hook>[string forumdisplay_filter_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_filter_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_filter_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_filter_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_filter_extra'];?>
 </ul>
 <script type="text/javascript">showTypes('thread_types');</script>
 <?php } ?>
-<?php echo '<hook>[string forumdisplay_threadtype_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_threadtype_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_threadtype_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_threadtype_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_threadtype_extra'];?>
 <?php if(empty($_G['forum']['sortmode'])) { ?><div id="threadlist" class="tl bm bmw"<?php if($_G['uid']) { ?> style="position: relative;"<?php } ?>>
 <?php if($quicksearchlist && !$_GET['archiveid']) { ?><script type="text/javascript">
 var forum_optionlist = <?php if($forum_optionlist) { ?>'<?php echo $forum_optionlist;?>'<?php } else { ?>''<?php } ?>;
@@ -773,7 +773,7 @@ EOF;
 <span class="pipe">|</span>
 <a href="javascript:;" onclick="clearStickThread()" class="xi2" title="显示置顶">显示置顶</a>
 </span>
-<?php echo '<hook>[string forumdisplay_filter_extra]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_filter_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_filter_extra'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_filter_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_filter_extra'];?>
 </div>
 <?php } else { ?>
 标题
@@ -870,7 +870,7 @@ EOF;
 <?php } if(!$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])) { $thread[tid]=$thread[closed];?><?php } if(!$_G['setting']['forumdisplaythreadpreview'] && !($thread['readperm'] && $thread['readperm'] > $_G['group']['readaccess'] && !$_G['forum']['ismoderator'] && $thread['authorid'] != $_G['uid'])) { if(!(!empty($_G['setting']['antitheft']['allow']) && empty($_G['setting']['antitheft']['disable']['thread']) && empty($_G['forum']['noantitheft']))) { ?>
 <a class="tdpre y" href="javascript:void(0);" onclick="previewThread('<?php echo $thread['moved'] ? $thread['closed'] : $thread['tid']; ?>', '<?php echo $thread['id'];?>');">预览</a>
 <?php } } ?>
-<?php echo '<hook>[array forumdisplay_thread/'.$key.']</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_thread'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_thread'][$key];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_thread'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_thread'][$key];?>
 <?php echo $thread['typehtml'];?> <?php echo $thread['sorthtml'];?>
 <?php if($thread['moved']) { ?>
 移动:<?php $thread[tid]=$thread[closed];?><?php } ?>
@@ -906,7 +906,7 @@ EOF;
 <?php } } if($thread['replycredit'] > 0) { ?>
 - <span class="xi1">[回帖奖励 <strong> <?php echo $thread['replycredit'];?></strong> ]</span>
 <?php } ?>
-<?php echo '<hook>[array forumdisplay_thread_subject/'.$key.']</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_thread_subject'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_thread_subject'][$key];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_thread_subject'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_thread_subject'][$key];?>
 <?php if($thread['multipage']) { ?>
 <span class="tps"><?php echo $thread['multipage'];?></span>
 <?php } if($thread['weeknew']) { ?>
@@ -919,7 +919,7 @@ EOF;
 <td class="by"><a href="forum.php?mod=forumdisplay&amp;fid=<?php echo $thread['fid'];?>" target="_blank"><?php echo $forumnames[$thread['fid']]['name'];?></a></td>
 <?php } ?>
 <td class="by">
-<?php echo '<hook>[array forumdisplay_author/'.$key.']</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_author'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_author'][$key];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_author'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_author'][$key];?>
 <cite>
 <?php if($thread['authorid'] && $thread['author']) { ?>
 <a href="home.php?mod=space&amp;uid=<?php echo $thread['authorid'];?>" c="1"<?php if($groupcolor[$thread['authorid']]) { ?> style="color: <?php echo $groupcolor[$thread['authorid']];?>;"<?php } ?>><?php echo $thread['author'];?></a><?php if(!empty($verify[$thread['authorid']])) { ?> <?php echo $verify[$thread['authorid']];?><?php } } else { ?>
@@ -963,7 +963,7 @@ EOF;
 </a>
 </div>
 <h3 class="xw0">
-<?php echo '<hook>[array forumdisplay_thread/'.$key.']</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_thread'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_thread'][$key];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_thread'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_thread'][$key];?>
 <a href="forum.php?mod=viewthread&amp;tid=<?php echo $thread['tid'];?>&amp;<?php if($_GET['archiveid']) { ?>archiveid=<?php echo $_GET['archiveid'];?>&amp;<?php } ?>extra=<?php echo $extra;?>"<?php echo $thread['highlight'];?><?php if($thread['isgroup'] == 1 || $thread['forumstick']) { ?> target="_blank"<?php } else { ?> onclick="atarget(this)"<?php } ?> title="<?php echo $thread['subject'];?>"><?php echo $thread['subject'];?></a>
 </h3>
 <div class="auth cl">
@@ -971,7 +971,7 @@ EOF;
 喜欢: <?php if($thread['recommends']) { ?><?php echo $thread['recommends'];?><?php } else { ?>0<?php } ?>
  &nbsp; 回复: <a href="forum.php?mod=viewthread&amp;tid=<?php echo $thread['tid'];?>&amp;extra=<?php echo $extra;?>" title="<?php echo $thread['replies'];?> 回复"><?php echo $thread['replies'];?></a>
 </cite>
-<?php echo '<hook>[array forumdisplay_author/'.$key.']</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_author'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_author'][$key];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_author'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_author'][$key];?>
 <?php if($thread['authorid'] && $thread['author']) { ?>
 <a href="home.php?mod=space&amp;uid=<?php echo $thread['authorid'];?>"><?php echo $thread['author'];?></a><?php if(!empty($verify[$thread['authorid']])) { ?> <?php echo $verify[$thread['authorid']];?><?php } } else { ?>
 <?php echo $_G['setting']['anonymoustext'];?>
@@ -1084,7 +1084,7 @@ scrolltimer = null;
 <?php } if($_G['forum']['ismoderator'] && $_G['forum_threadcount']) { include template('forum/topicadmin_modlayer'); } ?>
 </form>
 </div>
-<?php echo '<hook>[string forumdisplay_threadlist_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_threadlist_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_threadlist_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_threadlist_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_threadlist_bottom'];?>
 </div>
 
 <?php if(!IS_ROBOT) { ?>
@@ -1138,7 +1138,7 @@ scrolltimer = null;
 <span id="fd_page_bottom"><?php echo $multipage;?></span>
 <span <?php if($_G['setting']['visitedforums']) { ?>id="visitedforumstmp" onmouseover="$('visitedforums').id = 'visitedforumstmp';this.id = 'visitedforums';showMenu({'ctrlid':this.id,'pos':'21'})"<?php } ?> class="pgb y"><a href="forum.php">返&nbsp;回</a></span>
 <?php if(!$_GET['archiveid']) { ?><a href="javascript:;" id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})"<?php if(!$_G['forum']['allowspecialonly'] && empty($_G['forum']['picstyle']) && !$_G['forum']['threadsorts']['required']) { ?> onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=<?php echo $_G['fid'];?>')"<?php } else { ?> onclick="location.href='forum.php?mod=post&action=newthread&fid=<?php echo $_G['fid'];?>';return false;"<?php } ?> title="发新帖"><img src="<?php echo IMGDIR;?>/pn_post.png" alt="发新帖" /></a><?php } ?>
-<?php echo '<hook>[string forumdisplay_postbutton_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_postbutton_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_postbutton_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_postbutton_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_postbutton_bottom'];?>
 </div>
 <?php } else { ?><div id="threadlist" class="bm bmw"<?php if($_G['uid']) { ?> style="position: relative;"<?php } ?>>
 <?php if($quicksearchlist && !$_GET['archiveid']) { ?><script type="text/javascript">
@@ -1438,18 +1438,18 @@ EOF;
 <?php echo $multipage;?>
 <span <?php if($_G['setting']['visitedforums']) { ?>id="visitedforumstmp" onmouseover="$('visitedforums').id = 'visitedforumstmp';this.id = 'visitedforums';showMenu({'ctrlid':this.id,'pos':'21'})"<?php } ?> class="pgb y"><a href="forum.php">返&nbsp;回</a></span>
 <?php if(!$_GET['archiveid']) { ?><a href="javascript:;" id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})"<?php if(!$_G['forum']['allowspecialonly'] && empty($_G['forum']['picstyle'])) { ?> onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=<?php echo $_G['fid'];?>')"<?php } else { ?> onclick="location.href='forum.php?mod=post&action=newthread&fid=<?php echo $_G['fid'];?>';return false;"<?php } ?> title="发新帖"><img src="<?php echo IMGDIR;?>/pn_post.png" alt="发新帖" /></a><?php } ?>
-<?php echo '<hook>[string forumdisplay_postbutton_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_postbutton_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_postbutton_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_postbutton_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_postbutton_bottom'];?>
 </div><?php } } ?>
 <!--[diy=diyfastposttop]--><div id="diyfastposttop" class="area"></div><!--[/diy]-->
 <?php if($fastpost) { include template('forum/forumdisplay_fastpost'); } ?>
 
-<?php echo '<hook>[string forumdisplay_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_bottom'];?>
 <!--[diy=diyforumdisplaybottom]--><div id="diyforumdisplaybottom" class="area"></div><!--[/diy]-->
 </div>
 
 <?php if($_G['forum']['allowside']) { ?>
 <div class="sd">
-<?php echo '<hook>[string forumdisplay_side_top]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_side_top'])) echo $_G['setting']['pluginhooks']['forumdisplay_side_top'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_side_top'])) echo $_G['setting']['pluginhooks']['forumdisplay_side_top'];?>
 <?php if(!$subforumonly) { ?>
 <div class="bm">
 <div class="bm_h">
@@ -1508,7 +1508,7 @@ EOF;
 <div class="drag">
 <!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
 </div>
-<?php echo '<hook>[string forumdisplay_side_bottom]</hook>';if(!empty($_G['setting']['pluginhooks']['forumdisplay_side_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_side_bottom'];?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_side_bottom'])) echo $_G['setting']['pluginhooks']['forumdisplay_side_bottom'];?>
 </div>
 <?php } ?>
 </div>
